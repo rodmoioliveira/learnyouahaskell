@@ -6,7 +6,7 @@ removeSmallest :: Ord t => [t] -> [t]
 removeSmallest [] = []
 removeSmallest xs = xs \\ (minimum xs : [])
 --
--- Other Solutions
+-- Others Solutions
 
 -- =============================================================
 
