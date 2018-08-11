@@ -1,3 +1,6 @@
+-- Anatomy
+-- [output | input , let bindings, predicate]
+
 filterodds xs = [x | x <- xs, odd x]
 filterodds' xs = [x | x <- xs, x `mod` 2 /= 0]
 -- filterodds' [1..10]

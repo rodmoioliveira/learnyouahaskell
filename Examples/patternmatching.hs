@@ -39,3 +39,11 @@ sum' (x:xs) = x + sum' xs
 capital :: [Char] -> [Char]
 capital "" = "Empty string, oops!"
 capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x] ++ " and the rest is " ++ xs
+
+-- case expression of pattern -> result
+--                    pattern -> result
+--                    pattern -> result
+describeList' :: [a] -> String
+describeList' xs = "The list is " ++ case xs of [] -> "empty."
+                                                [x] -> "a singleton list."
+                                                xs -> "a longer list."
