@@ -40,15 +40,5 @@ test = [0, -1]
 
 comp :: (Num a, Ord a) => [a] -> [a] -> Bool
 comp [] [] = True
-comp as bs
-  | length as /= length bs = False
-  | otherwise = foldl (&&) True pairs
-  where pairs = zipWith isSquare (absoluteAndSorted as) (absoluteAndSorted bs)
-        isSquare x y = x ^ 2 == y
-        absoluteAndSorted xs = map abs $ sort xs
-
-comp' :: (Num a, Ord a) => [a] -> [a] -> Bool
-comp' [] [] = True
-comp' as bs
-  | length as /= length bs = False
-  | otherwise = map (^2) (sort as) == sort bs
+comp as bs = map (^2) (sort . absolute $ as) == (sort . absolute $ bs)
+  where absolute = map abs
