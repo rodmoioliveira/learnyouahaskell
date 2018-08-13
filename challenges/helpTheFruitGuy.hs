@@ -47,3 +47,14 @@ removeRotten''' = map replace
 replace :: String -> String
 replace ('r':'o':'t':'t':'e':'n':f:ruit) = (toLower f):ruit
 replace fruit = fruit
+
+-------------------------------------------------------------
+
+removeRotten1 :: [String] -> [String]
+removeRotten1 [] = []
+removeRotten1 xs = [removeRotten2 s | s <- xs]
+
+removeRotten2 :: String -> String
+removeRotten2 s
+  | "rotten" `isPrefixOf` s = map toLower (s \\ "rotten")
+  | otherwise = s
