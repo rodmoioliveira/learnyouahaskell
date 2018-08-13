@@ -14,8 +14,8 @@
 vowelIndices :: String -> [Integer]
 vowelIndices word = [ x | (x,y) <- zip [1..] word, y `elem` "aeiouyAEIOUY"]
 
+-- =============================================================
 -- Others Solutions
-
 -- =============================================================
 
 -- import Data.List(findIndices)

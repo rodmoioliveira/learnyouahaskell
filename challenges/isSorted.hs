@@ -14,7 +14,9 @@
 -- it "[5,4,3,3,1]" $ isSortedAndHow [5,4,3,3,1] `shouldBe` "yes, descending"
 -- it "[1,2,1,2,1]" $ isSortedAndHow [1,2,1,2,1] `shouldBe` "no"
 
--- Others Soluctions
+-- =============================================================
+-- Others Solutions
+-- =============================================================
 
 isSortedAndHow :: [Int] -> String
 isSortedAndHow xs

@@ -5,9 +5,9 @@ import Data.List
 removeSmallest :: Ord t => [t] -> [t]
 removeSmallest [] = []
 removeSmallest xs = xs \\ (minimum xs : [])
---
--- Others Solutions
 
+-- =============================================================
+-- Others Solutions
 -- =============================================================
 
 -- import Data.List (delete)

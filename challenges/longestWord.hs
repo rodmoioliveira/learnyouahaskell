@@ -21,9 +21,9 @@ longest' = length . head . reverse . sortBy (\x y -> length x `compare` length y
 longest'' :: [String] -> Int
 longest'' = length . head . reverse . sortBy (compare `on` length)
 
--------------------------------------------------------------
--- Others Soluctions
--------------------------------------------------------------
+-- =============================================================
+-- Others Solutions
+-- =============================================================
 
 longest1 :: [String] -> Int
 longest1 = maximum . map length

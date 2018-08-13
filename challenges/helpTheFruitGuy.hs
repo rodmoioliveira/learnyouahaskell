@@ -20,9 +20,9 @@ removeRotten = map replaceFruits
           | isRotten x = removeRotten x
           | otherwise = x
 
--------------------------------------------------------------
--- Others Soluctions
--------------------------------------------------------------
+-- =============================================================
+-- Others Solutions
+-- =============================================================
 
 -- http://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Maybe.html#t:Maybe
 -- The maybe function takes a default value, a function, and a Maybe value. If the Maybe value is Nothing, the function returns the default value. Otherwise, it applies the function to the value inside the Just and returns the result.

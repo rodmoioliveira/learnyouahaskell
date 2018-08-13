@@ -27,8 +27,8 @@ high string = getMaximum pairValues
             pairValues = zip wordsValue wordsCollection
             getMaximum xs = snd $ foldr1 (\t1@(v1,w1) t2@(v2,w2) -> if v2 > v1 then t2 else t1) xs
 
+-- =============================================================
 -- Others Solutions
-
 -- =============================================================
 
 -- a :: Int

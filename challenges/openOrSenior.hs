@@ -6,8 +6,8 @@ openOrSenior :: [(Int, Int)] -> [Membership]
 openOrSenior [] = []
 openOrSenior xs = [(result x y) | (x,y) <- xs, let result a b = if (a >= 55) && (b > 7) then Senior else Open]
 
+-- =============================================================
 -- Others Solutions
-
 -- =============================================================
 
 -- openOrSenior :: [(Int, Int)] -> [Membership]
