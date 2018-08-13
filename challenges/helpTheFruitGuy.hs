@@ -32,14 +32,14 @@ removeRotten' = map (
   \fruit -> maybe fruit (map toLower) $ stripPrefix "rotten" fruit
   )
 
--------------------------------------------------------------
+-- =============================================================
 
 -- The fromMaybe function takes a default value and and Maybe value. If the Maybe is Nothing, it returns the default values; otherwise, it returns the value contained in the Maybe.
 -- fromMaybe :: a -> Maybe a -> a
 removeRotten'' :: [String] -> [String]
 removeRotten'' = map (\s -> fromMaybe s $ stripPrefix "rotten" $ map toLower s)
 
--------------------------------------------------------------
+-- =============================================================
 
 -- Insane pattern matching
 removeRotten''' :: [String] -> [String]
@@ -48,7 +48,7 @@ replace :: String -> String
 replace ('r':'o':'t':'t':'e':'n':f:ruit) = (toLower f):ruit
 replace fruit = fruit
 
--------------------------------------------------------------
+-- =============================================================
 
 removeRotten1 :: [String] -> [String]
 removeRotten1 [] = []
