@@ -19,6 +19,7 @@
 import Data.Char
 import Data.List.Split
 import Data.List
+import Data.Function
 
 test = "elephant-rides are really fun!"
 test2 = "internationalization, asdasd, asd!"
@@ -29,10 +30,35 @@ abbreviate str = foldl (++) [] $ join (transform $ filter (not . null) (onlyWord
   where pontuaction = wordsBy isLetter $ str
         onlyWords = splitOneOf (unwords pontuaction)
         transform = map (\word -> if length word < 4 then word else abr word)
-        abr x = [(head x)] ++ show ((length x) - 2) ++ [last x]
+        abr x = [head x] ++ show ((length x) - 2) ++ [last x]
         join [] [] = []
         join all@(x:xs) [] = x : join xs []
         join (x:xs) (y:ys) = x : y : join xs ys
 
 -- FAIL!
 -- https://www.codewars.com/kata/word-a10n-abbreviation/solutions?show-solutions=1
+
+-- =============================================================
+-- Others Soluctions
+-- =============================================================
+
+
+abbreviate'' :: String -> String
+abbreviate'' = concat . map shorten . groupBy ((==) `on` isAlpha)
+                           -- same as groupBy (\a b -> isAlpha a && isAlpha b)
+  where shorten str
+          | length str < 4 = str
+          | otherwise = [head str] ++ show (length str - 2) ++ [last str]
+
+-- =============================================================
+
+abbreviate' :: String -> String
+abbreviate' = mapWords ab
+  where ab s | length s < 4 = s
+              | otherwise = head s : show (length s - 2) ++ [last s]
+
+mapWords :: (String -> String) -> String -> String
+mapWords _ "" = ""
+mapWords f s = (f alphas) ++ notAlphas ++ mapWords f y
+  where (alphas, x) = span isAlpha s
+        (notAlphas, y) = break isAlpha x
